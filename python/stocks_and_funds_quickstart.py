@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-RiskModels × Omega Point quickstart (CLI twin of the quickstart notebook).
+RiskModels API quickstart (CLI twin of the notebook).
 
 API-only: metrics, L* hedge-depth dispatch, funds with the FF2 style layer,
 pre-rendered snapshot panels, server PDFs. No local zarr.
@@ -73,7 +73,7 @@ PANEL_SLUGS = (
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(
-        description="RiskModels Orth Risk quickstart for Omega Point (API-only).",
+        description="RiskModels Orth Risk quickstart (API-only).",
     )
     p.add_argument("--stock", default="NVDA")
     p.add_argument("--years", type=int, default=3)
@@ -675,7 +675,7 @@ def run_book(
     )
     try:
         pdf_bytes, _ = client.post_portfolio_risk_snapshot_pdf(
-            book, title="Omega demo book"
+            book, title="Demo book"
         )
         path = output_dir / "demo_book_risk_snapshot.pdf"
         path.write_bytes(pdf_bytes)

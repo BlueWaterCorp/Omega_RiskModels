@@ -1,7 +1,6 @@
 # Omega_RiskModels
 
-Partner-facing walkthrough for **[Omega Point](https://www.omegapoint.ai/)**:
-**ERM3 Orth Risk** over the RiskModels API.
+A partner-facing walkthrough of **ERM3 Orth Risk** over the RiskModels API.
 
 This repo is **API-only**. Pre-rendered snapshot panels and server PDFs come from
 the RiskModels API. Local / GCS zarr history is out of scope here (can be
@@ -22,7 +21,7 @@ permissioned later).
 
 | Path | Best for | Entry point |
 |---|---|---|
-| **Notebook** | Colab / Jupyter, narrative session | [`notebooks/RiskModels_Stocks_and_Funds_the partner_Quickstart.ipynb`](notebooks/RiskModels_Stocks_and_Funds_the partner_Quickstart.ipynb) |
+| **Notebook** | Colab / Jupyter, narrative session | [`notebooks/RiskModels_Stocks_and_Funds_Quickstart.ipynb`](notebooks/RiskModels_Stocks_and_Funds_Quickstart.ipynb) |
 | **Script** | Terminal, saved artifacts | [`python/stocks_and_funds_quickstart.py`](python/stocks_and_funds_quickstart.py) |
 
 ---
@@ -82,7 +81,7 @@ Not included: zarr-backed historical waterfall (permission later).
 
 ## Option A — Notebook
 
-Open `notebooks/RiskModels_Stocks_and_Funds_the partner_Quickstart.ipynb`, connect, set
+Open `notebooks/RiskModels_Stocks_and_Funds_Quickstart.ipynb`, connect, set
 `STOCK_TICKER` / `FUND_QUERY` / `BOOK`, run top to bottom.
 
 ---
@@ -112,7 +111,7 @@ Omega_RiskModels/
 ├── README.md
 ├── requirements.txt
 ├── .env.example
-├── notebooks/RiskModels_Stocks_and_Funds_the partner_Quickstart.ipynb
+├── notebooks/RiskModels_Stocks_and_Funds_Quickstart.ipynb
 ├── python/stocks_and_funds_quickstart.py
 └── output/
 ```
