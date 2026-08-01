@@ -35,8 +35,34 @@ cd Omega_RiskModels
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -U -r requirements.txt
-cp .env.example .env.local   # set RISKMODELS_API_KEY=
 ```
+
+### Add your API key
+
+1. Get a key at [riskmodels.app/get-key](https://riskmodels.app/get-key).
+2. Copy the example env file and paste the key (do **not** commit this file — it is gitignored):
+
+```bash
+cp .env.example .env.local
+```
+
+3. Edit `.env.local` so it looks like:
+
+```bash
+RISKMODELS_API_KEY=rm_your_actual_key_here
+```
+
+4. Run the notebook or script from the **repo root** (so `quickstart_connect()` can find `.env.local`).
+
+**Alternatives**
+
+| Method | When to use |
+|---|---|
+| `export RISKMODELS_API_KEY=...` in the shell | Script / one-off terminal session |
+| Colab Secrets named `RISKMODELS_API_KEY` | Google Colab notebook |
+| Secure prompt when nothing is set | `quickstart_connect()` will ask; key is not printed |
+
+Optional: uncomment `RISKMODELS_BASE_URL` in `.env.local` only if you need a non-default API host (default is `https://riskmodels.app/api`).
 
 ---
 
