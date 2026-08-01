@@ -1,8 +1,7 @@
 # Omega_RiskModels
 
-Partner-facing walkthrough for **[Omega Point](https://www.omegapoint.ai/)**: evaluate
-**ERM3 Orth Risk** as a **hosted model** you could offer alongside Barra and other
-models you already distribute.
+Partner-facing walkthrough for **[Omega Point](https://www.omegapoint.ai/)**:
+**ERM3 Orth Risk** over the RiskModels API.
 
 This repo is **API-only**. Pre-rendered snapshot panels and server PDFs come from
 the RiskModels API. Local / GCS zarr history is out of scope here (can be
@@ -68,11 +67,14 @@ Optional: uncomment `RISKMODELS_BASE_URL` in `.env.local` only if you need a non
 
 ## Session spine (API-only)
 
-1. **Part 0 — Product surfaces:** `snapshot_panel` PNGs (`l3_explained_risk_hbar`,
+1. **Part I — Stock (leads with the hero chart):** cumulative return attribution
+   (anchored lines + waterfall) → signed ER (incl. negative layers) → **L\*** hedge-depth
+   dispatch (`GET /lstar`) → HR × `$` notional ticket
+2. **Interlude — Product surfaces:** `snapshot_panel` PNGs (`l3_explained_risk_hbar`,
    `hedge_notionals_hbar`, `hedge_depth_retained`) + `get_metrics_snapshot_pdf`
-2. **Part I — Stock:** metrics, HR × `$` notional ticket, return attribution
-3. **Part II — Fund:** search → composed snapshot → residual persistence → hedge ticket
-4. **Part III — Bring your book:** small weight vector via `analyze_portfolio` + portfolio PDF
+3. **Part II — Fund:** search → composed snapshot with the **FF2 style layer** →
+   final-residual persistence → hedge ticket (hedge legs stop at subsector; FF2 has no ETF hedge)
+4. **Part III — Bring your book:** `analyze_portfolio` + weight-mean ER waterfall + portfolio PDF
 
 Not included: zarr-backed historical waterfall (permission later).
 
@@ -97,7 +99,7 @@ Artifacts under `output/`:
 
 - `{TICKER}_l3_explained_risk_hbar.png` (and sibling panel PNGs)
 - `{TICKER}_metrics_snapshot.pdf`
-- `{TICKER}_l3_er.png`, `{TICKER}_attribution_{years}y.png`
+- `{TICKER}_l3_er.png`, `{TICKER}_lstar.png`, `{TICKER}_attribution_{years}y.png`
 - fund decomp / attribution / hedge PNGs
 - `demo_book_risk_snapshot.pdf`
 
