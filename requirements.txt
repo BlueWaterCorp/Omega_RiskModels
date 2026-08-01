@@ -1,0 +1,6 @@
+riskmodels-py>=0.1.0
+pandas>=2.0
+matplotlib>=3.7
+requests>=2.31
+python-dotenv>=1.0
+numpy>=1.24
